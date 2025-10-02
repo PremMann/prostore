@@ -1,7 +1,13 @@
 
-const Homepage = () => {
+import ProductList from "@/components/ui/shared/product/product-list";
+import { getLatestProducts } from "@/lib/actions/product.actions";
+const Homepage = async () => {
+  const latestProducts = await getLatestProducts();
+
   return (
-   <>Prostore</>
+   <>
+   <ProductList data={latestProducts} title="New Products" limit={4} />
+   </>
   );
 };
 
